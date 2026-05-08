@@ -1,0 +1,19 @@
+#!/bin/bash
+
+######### commands specific to this project #############
+# env vars that may be used in this script:
+#  $PATH
+#  $TOOLWD ($(pwd))
+#  $CALLERPATH
+#  $TARGET
+#  $PYTHONPATH
+
+(cd agency ; make)
+node ./pbp/das/das2json.mjs llm.drawio
+rm -f out.md
+python main.py 'is concurrency considered difficult?' LLM_test_jig llm.drawio.json
+
+############################
+
+
+

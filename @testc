@@ -1,0 +1,3 @@
+#!/bin/bash
+# echo "is concurrency considered difficult?" | ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt "concise responses" 
+

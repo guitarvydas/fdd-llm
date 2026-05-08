@@ -1,0 +1,80 @@
+[
+  {
+    "name": "LLM_test_jig",
+    "children": [
+      {
+        "name": "LLM",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "LLM",
+          "id": 5
+        }
+      }
+    ],
+    "file": "llm.drawio"
+  },
+  {
+    "name": "LLM",
+    "children": [
+      {
+        "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+          "id": 5
+        }
+      }
+    ],
+    "file": "llm.drawio"
+  }
+]
