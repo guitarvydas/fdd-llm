@@ -11,7 +11,7 @@
 (cd agency ; make)
 node ./pbp/das/das2json.mjs llm.drawio
 rm -f out.md
-python main.py 'is concurrency considered difficult?' LLM_test_jig llm.drawio.json
+python main.py 'is concurrency considered difficult?' LLM-test-jig llm.drawio.json
 
 ############################
 

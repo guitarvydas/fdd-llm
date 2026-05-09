@@ -1,0 +1,29 @@
+import sys
+import kernel0d as zd
+
+
+class Counter:
+    def __init__ (self):
+        self.max = 5
+        self.count = 1
+        
+    def inc (self):
+        self.count += 1
+        
+def handler (eh, mev):
+    self = eh.instance_data
+    self.inc ()
+    if self.count < self.max:
+        zd.send (eh, "<5", mev.datum.v, mev)
+    else:
+        zd.send (eh, "5th", mev.datum.v, mev)
+        
+def instantiate (reg, owner, name, arg, template_data):
+    name_with_id = zd.gensymbol ("Counter")
+    self = Counter ()
+    return zd.make_leaf (name_with_id, owner, self, arg, handler)
+
+def install (reg):
+    zd.register_component (reg, zd.mkTemplate ("Counter", None, instantiate))
+    
+        

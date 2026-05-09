@@ -1,39 +1,12 @@
 [
   {
-    "name": "LLM_test_jig",
-    "children": [
-      {
-        "name": "LLM",
-        "id": 5
-      }
-    ],
+    "name": "LLM-test-jig",
+    "children": [],
     "connections": [
       {
-        "dir": 0,
+        "dir": 3,
         "source_port": "",
-        "target_port": "",
-        "target": {
-          "name": "LLM",
-          "id": 5
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": "LLM",
-          "id": 5
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "✗",
-        "target_port": "✗",
-        "source": {
-          "name": "LLM",
-          "id": 5
-        }
+        "target_port": ""
       }
     ],
     "file": "llm.drawio"
