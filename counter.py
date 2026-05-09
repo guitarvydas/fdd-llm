@@ -19,11 +19,11 @@ def handler (eh, mev):
         zd.send (eh, "5th", mev.datum.v, mev)
         
 def instantiate (reg, owner, name, arg, template_data):
-    name_with_id = zd.gensymbol ("Counter")
+    name_with_id = zd.gensymbol ("counter")
     self = Counter ()
-    return zd.make_leaf (name_with_id, owner, self, arg, handler)
+    return zd.make_leaf (name_with_id, owner, self, arg, handler, None)
 
 def install (reg):
-    zd.register_component (reg, zd.mkTemplate ("Counter", None, instantiate))
+    zd.register_component (reg, zd.mkTemplate ("counter", None, instantiate))
     
         
