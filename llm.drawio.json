@@ -39,7 +39,42 @@
     "file": "llm.drawio"
   },
   {
-    "name": "LLM",
+    "name": "Initial Question",
+    "children": [
+      {
+        "name": "Raw LLM",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 3,
+        "source_port": "",
+        "target_port": ""
+      }
+    ],
+    "file": "llm.drawio"
+  },
+  {
+    "name": "Raw LLM",
     "children": [
       {
         "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
@@ -47,6 +82,15 @@
       }
     ],
     "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+          "id": 5
+        }
+      },
       {
         "dir": 2,
         "source_port": "",
@@ -64,11 +108,6 @@
           "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
           "id": 5
         }
-      },
-      {
-        "dir": 3,
-        "source_port": "",
-        "target_port": ""
       }
     ],
     "file": "llm.drawio"
@@ -77,7 +116,7 @@
     "name": "counter-test-jig",
     "children": [
       {
-        "name": "LLM",
+        "name": "Initial Question",
         "id": 5
       },
       {
@@ -95,7 +134,7 @@
         "source_port": "",
         "target_port": "",
         "target": {
-          "name": "LLM",
+          "name": "Initial Question",
           "id": 5
         }
       },
@@ -104,7 +143,7 @@
         "source_port": "",
         "target_port": "",
         "source": {
-          "name": "LLM",
+          "name": "Initial Question",
           "id": 5
         },
         "target": {
@@ -121,7 +160,7 @@
           "id": 9
         },
         "target": {
-          "name": "LLM",
+          "name": "Initial Question",
           "id": 5
         }
       },
