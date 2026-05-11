@@ -12,11 +12,11 @@ class Counter:
         
 def handler (eh, mev):
     self = eh.instance_data
-    self.inc ()
     if self.count < self.max:
         zd.send (eh, "<5", mev.datum.v, mev)
     else:
         zd.send (eh, "5th", mev.datum.v, mev)
+    self.inc ()
         
 def instantiate (reg, owner, name, arg, template_data):
     name_with_id = zd.gensymbol ("counter")
@@ -26,4 +26,3 @@ def instantiate (reg, owner, name, arg, template_data):
 def install (reg):
     zd.register_component (reg, zd.mkTemplate ("counter", None, instantiate))
     
-        

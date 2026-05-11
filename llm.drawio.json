@@ -83,6 +83,10 @@
       {
         "name": "counter",
         "id": 9
+      },
+      {
+        "name": ":?A",
+        "id": 14
       }
     ],
     "connections": [
@@ -119,6 +123,19 @@
         "target": {
           "name": "LLM",
           "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "<5",
+        "target_port": "",
+        "source": {
+          "name": "counter",
+          "id": 9
+        },
+        "target": {
+          "name": ":?A",
+          "id": 14
         }
       },
       {
