@@ -869,26 +869,34 @@ def stringconcat_instantiate (reg,owner,name,template_data,arg):#line 147
 def stringconcat_handler (eh,mev):                     #line 153
     inst =  eh.instance_data                           #line 154
     if  "1" ==  mev.port:                              #line 155
+        print (f'String Concat 1', file=sys.stderr)
         inst.buffer1 = clone_string ( mev.datum.v)     #line 156
         maybe_stringconcat ( eh, inst, mev)            #line 157
     elif  "2" ==  mev.port:                            #line 158
+        print (f'String Concat 2', file=sys.stderr)
         inst.buffer2 = clone_string ( mev.datum.v)     #line 159
         maybe_stringconcat ( eh, inst, mev)            #line 160
     elif  "reset" ==  mev.port:                        #line 161
+        print (f'String Concat reset', file=sys.stderr)
         inst.buffer1 =  None                           #line 162
         inst.buffer2 =  None                           #line 163
     else:                                              #line 164
         runtime_error ( str( "bad mev.port for stringconcat: ") +  mev.port )#line 165#line 166#line 167#line 168
 
 def maybe_stringconcat (eh,inst,mev):                  #line 169
+    print (f'String Concat A', file=sys.stderr)
     if  inst.buffer1!= None and  inst.buffer2!= None:  #line 170
         concatenated_string =  ""                      #line 171
         if  0 == len ( inst.buffer1):                  #line 172
+            print (f'String Concat B', file=sys.stderr)
             concatenated_string =  inst.buffer2        #line 173
         elif  0 == len ( inst.buffer2):                #line 174
+            print (f'String Concat B', file=sys.stderr)
             concatenated_string =  inst.buffer1        #line 175
         else:                                          #line 176
+            print (f'String Concat C', file=sys.stderr)
             concatenated_string =  inst.buffer1+ inst.buffer2#line 177#line 178
+        print (f'String Concat D', file=sys.stderr)
         send ( eh, "", concatenated_string, mev)       #line 179
         inst.buffer1 =  None                           #line 180
         inst.buffer2 =  None                           #line 181#line 182#line 183#line 184

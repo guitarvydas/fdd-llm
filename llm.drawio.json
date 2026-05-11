@@ -39,14 +39,290 @@
     "file": "llm.drawio"
   },
   {
+    "name": "counter-test-jig",
+    "children": [
+      {
+        "name": "Initial Question",
+        "id": 5
+      },
+      {
+        "name": "counter",
+        "id": 9
+      },
+      {
+        "name": "Rephrase",
+        "id": 14
+      },
+      {
+        "name": ":?rephrased",
+        "id": 18
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Initial Question",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Initial Question",
+          "id": 5
+        },
+        "target": {
+          "name": "counter",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "<5",
+        "target_port": "",
+        "source": {
+          "name": "counter",
+          "id": 9
+        },
+        "target": {
+          "name": "Rephrase",
+          "id": 14
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Rephrase",
+          "id": 14
+        },
+        "target": {
+          "name": "Initial Question",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Rephrase",
+          "id": 14
+        },
+        "target": {
+          "name": ":?rephrased",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "5th",
+        "target_port": "",
+        "source": {
+          "name": "counter",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Initial Question",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "counter",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Rephrase",
+          "id": 14
+        }
+      }
+    ],
+    "file": "llm.drawio"
+  },
+  {
     "name": "Initial Question",
     "children": [
       {
         "name": "Raw LLM",
         "id": 5
+      },
+      {
+        "name": ":?Q",
+        "id": 9
       }
     ],
     "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": ":?Q",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      }
+    ],
+    "file": "llm.drawio"
+  },
+  {
+    "name": "Rephrase",
+    "children": [
+      {
+        "name": "Raw LLM",
+        "id": 5
+      },
+      {
+        "name": "String Concat",
+        "id": 9
+      },
+      {
+        "name": ":Rephrase each issue as a concise question ; ask for concise answers",
+        "id": 15
+      },
+      {
+        "name": ":?A",
+        "id": 17
+      },
+      {
+        "name": ":?newQ",
+        "id": 19
+      },
+      {
+        "name": ":?again",
+        "id": 21
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "2",
+        "target": {
+          "name": "String Concat",
+          "id": 9
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": ":?A",
+          "id": 17
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "reset",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        },
+        "target": {
+          "name": "String Concat",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "String Concat",
+          "id": 9
+        },
+        "target": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "1",
+        "source": {
+          "name": ":Rephrase each issue as a concise question ; ask for concise answers",
+          "id": 15
+        },
+        "target": {
+          "name": "String Concat",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "String Concat",
+          "id": 9
+        },
+        "target": {
+          "name": ":?newQ",
+          "id": 19
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        },
+        "target": {
+          "name": ":?again",
+          "id": 21
+        }
+      },
       {
         "dir": 2,
         "source_port": "",
@@ -66,9 +342,13 @@
         }
       },
       {
-        "dir": 3,
-        "source_port": "",
-        "target_port": ""
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "String Concat",
+          "id": 9
+        }
       }
     ],
     "file": "llm.drawio"
@@ -107,83 +387,6 @@
         "source": {
           "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
           "id": 5
-        }
-      }
-    ],
-    "file": "llm.drawio"
-  },
-  {
-    "name": "counter-test-jig",
-    "children": [
-      {
-        "name": "Initial Question",
-        "id": 5
-      },
-      {
-        "name": "counter",
-        "id": 9
-      },
-      {
-        "name": ":?A",
-        "id": 14
-      }
-    ],
-    "connections": [
-      {
-        "dir": 0,
-        "source_port": "",
-        "target_port": "",
-        "target": {
-          "name": "Initial Question",
-          "id": 5
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": "Initial Question",
-          "id": 5
-        },
-        "target": {
-          "name": "counter",
-          "id": 9
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "<5",
-        "target_port": "",
-        "source": {
-          "name": "counter",
-          "id": 9
-        },
-        "target": {
-          "name": "Initial Question",
-          "id": 5
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "<5",
-        "target_port": "",
-        "source": {
-          "name": "counter",
-          "id": 9
-        },
-        "target": {
-          "name": ":?A",
-          "id": 14
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "5th",
-        "target_port": "",
-        "source": {
-          "name": "counter",
-          "id": 9
         }
       }
     ],
