@@ -165,10 +165,6 @@
       {
         "name": "Raw LLM",
         "id": 5
-      },
-      {
-        "name": ":?Q",
-        "id": 9
       }
     ],
     "connections": [
@@ -179,15 +175,6 @@
         "target": {
           "name": "Raw LLM",
           "id": 5
-        }
-      },
-      {
-        "dir": 0,
-        "source_port": "",
-        "target_port": "",
-        "target": {
-          "name": ":?Q",
-          "id": 9
         }
       },
       {
@@ -225,21 +212,18 @@
       {
         "name": ":Rephrase each issue as a concise question ; ask for concise answers",
         "id": 15
-      },
-      {
-        "name": ":?A",
-        "id": 17
-      },
-      {
-        "name": ":?newQ",
-        "id": 19
-      },
-      {
-        "name": ":?again",
-        "id": 21
       }
     ],
     "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": ":Rephrase each issue as a concise question ; ask for concise answers",
+          "id": 15
+        }
+      },
       {
         "dir": 0,
         "source_port": "",
@@ -247,15 +231,6 @@
         "target": {
           "name": "String Concat",
           "id": 9
-        }
-      },
-      {
-        "dir": 0,
-        "source_port": "",
-        "target_port": "",
-        "target": {
-          "name": ":?A",
-          "id": 17
         }
       },
       {
@@ -295,32 +270,6 @@
         "target": {
           "name": "String Concat",
           "id": 9
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": "String Concat",
-          "id": 9
-        },
-        "target": {
-          "name": ":?newQ",
-          "id": 19
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": "Raw LLM",
-          "id": 5
-        },
-        "target": {
-          "name": ":?again",
-          "id": 21
         }
       },
       {
