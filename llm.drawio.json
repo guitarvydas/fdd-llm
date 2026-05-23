@@ -1,18 +1,10 @@
 [
   {
-    "name": "main",
+    "name": "LLM-test-jig",
     "children": [
       {
-        "name": ":$ ./agency/main",
+        "name": "LLM",
         "id": 5
-      },
-      {
-        "name": "Rephrase Answer as Yet Another Question",
-        "id": 9
-      },
-      {
-        "name": "Count",
-        "id": 13
       }
     ],
     "connections": [
@@ -21,46 +13,16 @@
         "source_port": "",
         "target_port": "",
         "target": {
-          "name": ":$ ./agency/main",
+          "name": "LLM",
           "id": 5
         }
       },
       {
-        "dir": 1,
+        "dir": 2,
         "source_port": "",
         "target_port": "",
         "source": {
-          "name": ":$ ./agency/main",
-          "id": 5
-        },
-        "target": {
-          "name": "Count",
-          "id": 13
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "less",
-        "target_port": "",
-        "source": {
-          "name": "Count",
-          "id": 13
-        },
-        "target": {
-          "name": "Rephrase Answer as Yet Another Question",
-          "id": 9
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": "Rephrase Answer as Yet Another Question",
-          "id": 9
-        },
-        "target": {
-          "name": ":$ ./agency/main",
+          "name": "LLM",
           "id": 5
         }
       },
@@ -69,73 +31,232 @@
         "source_port": "✗",
         "target_port": "✗",
         "source": {
-          "name": ":$ ./agency/main",
+          "name": "LLM",
           "id": 5
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "final",
-        "target_port": "md",
-        "source": {
-          "name": "Count",
-          "id": 13
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "✗",
-        "target_port": "✗",
-        "source": {
-          "name": "Rephrase Answer as Yet Another Question",
-          "id": 9
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "✗",
-        "target_port": "✗",
-        "source": {
-          "name": "Count",
-          "id": 13
         }
       }
     ],
     "file": "llm.drawio"
   },
   {
-    "name": "Rephrase Answer as Yet Another Question",
+    "name": "counter-test-jig",
     "children": [
       {
-        "name": "String Concat",
+        "name": "Initial Question",
         "id": 5
       },
       {
-        "name": ":Rephrase each issue as a concise question ; ask for concise answers",
-        "id": 11
+        "name": "counter",
+        "id": 9
       },
       {
-        "name": ":$ ./agency/main",
+        "name": "Rephrase",
         "id": 14
+      },
+      {
+        "name": ":?rephrased",
+        "id": 18
       }
     ],
     "connections": [
       {
         "dir": 0,
         "source_port": "",
-        "target_port": "2",
+        "target_port": "",
         "target": {
-          "name": "String Concat",
+          "name": "Initial Question",
           "id": 5
         }
       },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Initial Question",
+          "id": 5
+        },
+        "target": {
+          "name": "counter",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "<5",
+        "target_port": "",
+        "source": {
+          "name": "counter",
+          "id": 9
+        },
+        "target": {
+          "name": "Rephrase",
+          "id": 14
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Rephrase",
+          "id": 14
+        },
+        "target": {
+          "name": "Initial Question",
+          "id": 5
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Rephrase",
+          "id": 14
+        },
+        "target": {
+          "name": ":?rephrased",
+          "id": 18
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "5th",
+        "target_port": "",
+        "source": {
+          "name": "counter",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Initial Question",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "counter",
+          "id": 9
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Rephrase",
+          "id": 14
+        }
+      }
+    ],
+    "file": "llm.drawio"
+  },
+  {
+    "name": "Initial Question",
+    "children": [
+      {
+        "name": "Raw LLM",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        }
+      }
+    ],
+    "file": "llm.drawio"
+  },
+  {
+    "name": "Rephrase",
+    "children": [
+      {
+        "name": "Raw LLM",
+        "id": 5
+      },
+      {
+        "name": "String Concat",
+        "id": 9
+      },
+      {
+        "name": ":Rephrase each issue as a concise question ; ask for concise answers",
+        "id": 15
+      }
+    ],
+    "connections": [
       {
         "dir": 0,
         "source_port": "",
         "target_port": "",
         "target": {
           "name": ":Rephrase each issue as a concise question ; ask for concise answers",
-          "id": 11
+          "id": 15
+        }
+      },
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "2",
+        "target": {
+          "name": "String Concat",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "reset",
+        "source": {
+          "name": "Raw LLM",
+          "id": 5
+        },
+        "target": {
+          "name": "String Concat",
+          "id": 9
+        }
+      },
+      {
+        "dir": 1,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": "String Concat",
+          "id": 9
+        },
+        "target": {
+          "name": "Raw LLM",
+          "id": 5
         }
       },
       {
@@ -144,36 +265,28 @@
         "target_port": "1",
         "source": {
           "name": ":Rephrase each issue as a concise question ; ask for concise answers",
-          "id": 11
+          "id": 15
         },
         "target": {
           "name": "String Concat",
-          "id": 5
+          "id": 9
         }
       },
       {
-        "dir": 1,
+        "dir": 2,
         "source_port": "",
         "target_port": "",
         "source": {
-          "name": "String Concat",
+          "name": "Raw LLM",
           "id": 5
-        },
-        "target": {
-          "name": ":$ ./agency/main",
-          "id": 14
         }
       },
       {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "reset",
+        "dir": 2,
+        "source_port": "✗",
+        "target_port": "✗",
         "source": {
-          "name": ":$ ./agency/main",
-          "id": 14
-        },
-        "target": {
-          "name": "String Concat",
+          "name": "Raw LLM",
           "id": 5
         }
       },
@@ -183,6 +296,36 @@
         "target_port": "✗",
         "source": {
           "name": "String Concat",
+          "id": 9
+        }
+      }
+    ],
+    "file": "llm.drawio"
+  },
+  {
+    "name": "Raw LLM",
+    "children": [
+      {
+        "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+        "id": 5
+      }
+    ],
+    "connections": [
+      {
+        "dir": 0,
+        "source_port": "",
+        "target_port": "",
+        "target": {
+          "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+          "id": 5
+        }
+      },
+      {
+        "dir": 2,
+        "source_port": "",
+        "target_port": "",
+        "source": {
+          "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
           "id": 5
         }
       },
@@ -191,17 +334,8 @@
         "source_port": "✗",
         "target_port": "✗",
         "source": {
-          "name": ":$ ./agency/main",
-          "id": 14
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": ":$ ./agency/main",
-          "id": 14
+          "name": ":$ ./agency/main -model gpt-4o-mini -maxTokens 1000 -temp=1 -prompt \"concise responses\"",
+          "id": 5
         }
       }
     ],

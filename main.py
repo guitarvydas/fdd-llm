@@ -1,14 +1,11 @@
 import sys
-sys.path.insert(0, './pbp/kernel')
 import kernel0d as zd
 
-import count
-import replnl
+import counter
 
-[palette, env] = zd.initialize_from_files (sys.argv[1], sys.argv[4:])
-count.install (palette)
-replnl.install (palette)
-top = zd.start_bare (part_name=sys.argv[3], palette=palette, env=env)
-zd.inject (top, "", sys.argv[2])
+[palette, env] = zd.initialize_from_files (sys.argv[3:])
+counter.install (palette)
+top = zd.start_bare (part_name=sys.argv[2], palette=palette, env=env)
+zd.inject (top, "", sys.argv[1])
 zd.finalize (top)
 
